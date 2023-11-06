@@ -320,6 +320,28 @@ const members = [
   { name: "DEGUZMAN", imageSrc: "sampleImages/buen.jpeg", color: "#FFDAC1" },
 ];
 
+let images = []
+
+const preloadedMemberImages = () => {
+  let loadedCount = 0;
+
+  members.forEach((member, index) => {
+    new Promise ((resolve, reject) => {
+
+      images.push(new Image());
+      images[index].onload = () => {
+        loadedCount++;
+        console.log("Loaded " + loadedCount + "/7 images...");
+        resolve;
+      }
+      images[index].src = member.imageSrc;
+    })
+  })  
+}
+
+
+preloadedMemberImages();
+
 const membersPortVersion = [
   { name: "CRUZ", imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg" },
   {
