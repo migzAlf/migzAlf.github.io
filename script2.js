@@ -319,28 +319,34 @@ const members = [
   { name: "MACABANTE", imageSrc: "sampleImages/josh.png", color: "#1FFF93" },
   { name: "DEGUZMAN", imageSrc: "sampleImages/buen.jpeg", color: "#FFDAC1" },
 ];
-
 let images = []
 
-const preloadedMemberImages = () => {
-  let loadedCount = 0;
+const loadingText = document.getElementById("loadingText")
+const loaderSection = document.getElementById("loaderSection");
+const mainBodyWrapper = document.getElementById("mainBodyWrapper")
 
-  members.forEach((member, index) => {
-    new Promise ((resolve, reject) => {
+async function preloadedMemberImages () {
+  members.forEach(async (member, index) => {
 
       images.push(new Image());
-      images[index].onload = () => {
-        loadedCount++;
-        console.log("Loaded " + loadedCount + "/7 images...");
-        resolve;
-      }
-      images[index].src = member.imageSrc;
-    })
-  })  
-}
+    loadingText.textContent = "loading " + member.imageSrc + " " + "["+ (index+1) + "/7 images...]";
+    console.log("loading " + member.imageSrc + " " + (index+1) + "/7 images...")
+     await preloadImage(index, member.imageSrc )  
+}) }
 
+async function preloadImage(index,src) {
+  new Promise((resolve, reject) => {
+    images[index].onload = () => {
+      resolve; 
+    }
+    images[index].src = src;
+  })
+} 
 
-preloadedMemberImages();
+// preload images, and display content after loading 
+preloadedMemberImages()
+loaderSection.style.display = "none";
+mainBodyWrapper.style.display ="block";
 
 const membersPortVersion = [
   { name: "CRUZ", imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg" },
