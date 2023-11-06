@@ -255,3 +255,24 @@ p {
 .socmedItem > svg > circle {
   transition: .3s;
 }
+
+.mainBodyWrapper {
+  display: none;
+}
+
+.loaderSection {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#loadingText {
+  color: white;
+  font-family: SamsungSans;
+  font-size: 4vh;
+  margin-top: 5vh;
+}
