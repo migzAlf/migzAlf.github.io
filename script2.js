@@ -350,28 +350,6 @@ preloadedMemberImages();
 loaderSection.style.display = "none";
 mainBodyWrapper.style.display = "block";
 
-const membersPortVersion = [
-  { name: "CRUZ", imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg" },
-  {
-    name: "BALLESTEROS",
-    imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg",
-  },
-  { name: "JACINTO", imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg" },
-  {
-    name: "ESPIRITU",
-    imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg",
-  },
-  {
-    name: "DEGUZMAN",
-    imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg",
-  },
-  {
-    name: "PASTRANA",
-    imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg",
-  },
-  { name: "CARLOS", imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg" },
-];
-
 const leftSelect = document.getElementById("leftSelect");
 const rightSelect = document.getElementById("rightSelect");
 const section1 = document.getElementById("section1");
