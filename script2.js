@@ -276,7 +276,8 @@ const membersFull = [
       },
     ],
     awards: [],
-  }, {
+  },
+  {
     name: "Edwin Buen Eloha H. De Guzman",
     lastName: "DeGuzman",
     professionalSummary:
@@ -294,14 +295,12 @@ const membersFull = [
         ],
       },
     ],
-    extracurricular: [
-    ],
+    extracurricular: [],
     awards: [
       {
         name: "Senior High School Upper Percentage",
         description: "Graduated Top 10% of the Graduating Batch",
       },
-      
     ],
   },
 ];
@@ -319,34 +318,37 @@ const members = [
   { name: "MACABANTE", imageSrc: "sampleImages/josh.png", color: "#1FFF93" },
   { name: "DEGUZMAN", imageSrc: "sampleImages/buen.jpeg", color: "#FFDAC1" },
 ];
-let images = []
+let images = [];
 
-const loadingText = document.getElementById("loadingText")
+const loadingText = document.getElementById("loadingText");
 const loaderSection = document.getElementById("loaderSection");
-const mainBodyWrapper = document.getElementById("mainBodyWrapper")
+const mainBodyWrapper = document.getElementById("mainBodyWrapper");
 
-async function preloadedMemberImages () {
+async function preloadedMemberImages() {
   members.forEach(async (member, index) => {
+    images.push(new Image());
+    loadingText.textContent =
+      "loading " + member.imageSrc + " " + "[" + (index + 1) + "/7 images...]";
+    console.log(
+      "loading " + member.imageSrc + " " + (index + 1) + "/7 images..."
+    );
+    await preloadImage(index, member.imageSrc);
+  });
+}
 
-      images.push(new Image());
-    loadingText.textContent = "loading " + member.imageSrc + " " + "["+ (index+1) + "/7 images...]";
-    console.log("loading " + member.imageSrc + " " + (index+1) + "/7 images...")
-     await preloadImage(index, member.imageSrc )  
-}) }
-
-async function preloadImage(index,src) {
+async function preloadImage(index, src) {
   new Promise((resolve, reject) => {
     images[index].onload = () => {
-      resolve; 
-    }
+      resolve;
+    };
     images[index].src = src;
-  })
-} 
+  });
+}
 
-// preload images, and display content after loading 
-preloadedMemberImages()
+// preload images, and display content after loading
+preloadedMemberImages();
 loaderSection.style.display = "none";
-mainBodyWrapper.style.display ="block";
+mainBodyWrapper.style.display = "block";
 
 const membersPortVersion = [
   { name: "CRUZ", imageSrc: "http://127.0.0.1:5500/sampleImages/face1.jpg" },
@@ -413,6 +415,13 @@ let currentPortraitSlot = {
   getSecondImage: () => members[currentPortraitSlot.second],
   getThirdImage: () => members[currentPortraitSlot.third],
 };
+
+//color doms
+const nameDivider = document.getElementById("nameDivider");
+const projectTitle = document.getElementById("projectTitle");
+const portfolioInfoContainerVerticalLine = document.getElementById(
+  "portfolioInfoContainerVerticalLine"
+);
 
 function changeText(element, text) {
   element.textContent = text;
@@ -485,6 +494,7 @@ let customCSSsheet = document.createElement("style");
 document.body.onload = () => {
   moveModelsRight();
   document.head.appendChild(customCSSsheet);
+  professionalSummaryTitle.style.display = "none";
 };
 
 rightSelect.onclick = moveModelsLeft;

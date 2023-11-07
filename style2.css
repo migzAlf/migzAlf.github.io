@@ -18,6 +18,10 @@
   src: url("fonts/Open-Sans.ttf");
 }
 
+@font-face {
+  font-family: akiraExpanded;
+  src: url("fonts/AkiraExpandedDemo.otf");
+}
 body {
   background-color: #000;
   margin: 0;
@@ -155,11 +159,19 @@ p::selection {
   background-color: red;
 }
 
-.professionalSummaryContainer > .pscNameContainer > h2,
-.professionalSummaryContainer > h3 {
+.professionalSummaryTitle {
+  font-family: garetHeavy;
+  color: #ffffff;
+  font-size: 1vw;
+  font-weight: 0;
+}
+
+.professionalSummaryContainer > .pscNameContainer,
+.professionalSummaryContainer > .professionalSummary {
   color: white;
   font-family: samsungSans;
   font-size: 1.3vw;
+  font-weight: 400;
 }
 
 .professionalSummaryContainer > h2 {
@@ -168,7 +180,6 @@ p::selection {
 
 .pscNameContainer > h2 {
   font-family: garetHeavy;
-  transform: translateX(-1vw);
 }
 
 .pscNameContainer .nameDivider {

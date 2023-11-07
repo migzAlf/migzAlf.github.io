@@ -76,60 +76,64 @@ let [PSI1, PSI2, PSI3, PSI4, PSI5, PSI6, PSI7] = [
 
 let PSIarray = [PSI1, PSI2, PSI3, PSI4, PSI5, PSI6, PSI7];
 
-//color doms
-const nameDivider = document.getElementById("nameDivider");
-const projectTitle = document.getElementById("projectTitle");
-const portfolioInfoContainerVerticalLine = document.getElementById(
-  "portfolioInfoContainerVerticalLine"
-);
+const socmedLinks = [
+  {
+    name: "Pastrana",
+    facebook: "https://www.facebook.com/vonjerome.cruz.1",
+    linkedin: "https://www.linkedin.com/in/vonjeromecruz/",
+    slack: "https://bootswagonorg.slack.com/team/U0649CPQ3EE",
+  },
+  {
+    name: "Ballesterps",
+    facebook: "https://www.facebook.com/miggyalf",
+    linkedin:
+      "https://www.linkedin.com/in/miguel-alfonso-ballesteros-818769232/",
+    slack: "https://bootswagonorg.slack.com/team/U063US3QDCP",
+  },
+  {
+    name: "Jacinto",
+    facebook: "https://facebook.com/thdeus12",
+    linkedin: "https://www.linkedin.com/in/marcus-thadeus-jacinto-101091288",
+    slack: "https://bootswagonorg.slack.com/team/U0642PAUQTY",
+  },
+  {
+    name: "Espiritu",
+    facebook: "https://www.facebook.com/kiel.espiritu.3?mibextid=ZbWKwL",
+    linkedin: "https://www.linkedin.com/in/ezekiel-espiritu-11a003289",
+    slack: "https://bootswagonorg.slack.com/team/U0642PAUQTY",
+  },
 
-const socmedLinks = [{
-  "name": "Pastrana",
-  "facebook": "https://www.facebook.com/vonjerome.cruz.1",
-  "linkedin": "https://www.linkedin.com/in/vonjeromecruz/",
-  "slack": "https://bootswagonorg.slack.com/team/U0649CPQ3EE"
-},
-{
-  "name": "Ballesterps",
-  "facebook": "https://www.facebook.com/miggyalf",
-  "linkedin": "https://www.linkedin.com/in/miguel-alfonso-ballesteros-818769232/",
-  "slack": "https://bootswagonorg.slack.com/team/U063US3QDCP"
-},{
-  "name": "Jacinto",
-  "facebook": "https://facebook.com/thdeus12",
-  "linkedin": "https://www.linkedin.com/in/marcus-thadeus-jacinto-101091288",
-  "slack": "https://bootswagonorg.slack.com/team/U0642PAUQTY"
-},{
-  "name": "Espiritu",
-  "facebook": "https://www.facebook.com/kiel.espiritu.3?mibextid=ZbWKwL",
-  "linkedin": "https://www.linkedin.com/in/ezekiel-espiritu-11a003289",
-  "slack": "https://bootswagonorg.slack.com/team/U0642PAUQTY"
-},
-
-{
-  "name": "Cruz",
-  "facebook": "https://www.facebook.com/vonjerome.cruz.1",
-  "linkedin": "https://www.linkedin.com/in/vonjeromecruz/",
-  "slack": "https://bootswagonorg.slack.com/team/U0649CPQ3EE"
-}
-,{
-  "name": "Macbante",
-  "facebook": "https://www.facebook.com/joshlerwin05/",
-  "linkedin": "www.linkedin.com/in/joshlerwin05    ",
-  "slack": "https://bootswagonorg.slack.com/team/U063US8GJ4F                               "
-},{
-  "name": "Deguzman",
-  "facebook": "https://www.facebook.com/buen.deguzman.1?mibextid=ZbWKwL",
-  "linkedin": "https://www.linkedin.com/in/buen-deguzman-26535429a?trk=contact-info",
-  "slack": "https://bootswagonorg.slack.com/team/U063US8GJ4F"
-}]
+  {
+    name: "Cruz",
+    facebook: "https://www.facebook.com/vonjerome.cruz.1",
+    linkedin: "https://www.linkedin.com/in/vonjeromecruz/",
+    slack: "https://bootswagonorg.slack.com/team/U0649CPQ3EE",
+  },
+  {
+    name: "Macbante",
+    facebook: "https://www.facebook.com/joshlerwin05/",
+    linkedin: "www.linkedin.com/in/joshlerwin05    ",
+    slack:
+      "https://bootswagonorg.slack.com/team/U063US8GJ4F                               ",
+  },
+  {
+    name: "Deguzman",
+    facebook: "https://www.facebook.com/buen.deguzman.1?mibextid=ZbWKwL",
+    linkedin:
+      "https://www.linkedin.com/in/buen-deguzman-26535429a?trk=contact-info",
+    slack: "https://bootswagonorg.slack.com/team/U063US8GJ4F",
+  },
+];
 
 const socmedWrapper = document.getElementById("socmedWrapper");
 
-const [facebookDiv, linkedInDiv, slackDiv] = [document.getElementById("SMI1"), document.getElementById("SMI2"), document.getElementById("SMI3")]
+const [facebookDiv, linkedInDiv, slackDiv] = [
+  document.getElementById("SMI1"),
+  document.getElementById("SMI2"),
+  document.getElementById("SMI3"),
+];
 
-
-const socmedItems = [facebookDiv, linkedInDiv, slackDiv]
+const socmedItems = [facebookDiv, linkedInDiv, slackDiv];
 
 portraitImage2.onclick = () => {
   //switch to section 2
@@ -185,29 +189,31 @@ portraitImage2.onclick = () => {
 
   //set socmed items link to selected person
   facebookDiv.onclick = () => {
-    window.open(socmedLinks[currentPortraitSlot.second].facebook,'_blank')
-  }
+    window.open(socmedLinks[currentPortraitSlot.second].facebook, "_blank");
+  };
 
   linkedInDiv.onclick = () => {
-    window.open(socmedLinks[currentPortraitSlot.second].linkedin,
-      "_blank")
-  }
+    window.open(socmedLinks[currentPortraitSlot.second].linkedin, "_blank");
+  };
 
   slackDiv.onclick = () => {
-    window.open(socmedLinks[currentPortraitSlot.second].slack,'_blank')
-  }
+    window.open(socmedLinks[currentPortraitSlot.second].slack, "_blank");
+  };
 
-   // add hover color based on person selected color
-   socmedItems.forEach(socmedItem => {
-    console.log(socmedItem)
+  // add hover color based on person selected color
+  socmedItems.forEach((socmedItem) => {
+    console.log(socmedItem);
     socmedItem.onmouseenter = () => {
-      socmedItem.children[0].children[0].setAttribute("fill", members[currentPortraitSlot.second].color)
-    }
+      socmedItem.children[0].children[0].setAttribute(
+        "fill",
+        members[currentPortraitSlot.second].color
+      );
+    };
 
     socmedItem.onmouseleave = () => {
-      socmedItem.children[0].children[0].setAttribute("fill", "#D9D9D9")
-    }
-  })
+      socmedItem.children[0].children[0].setAttribute("fill", "#D9D9D9");
+    };
+  });
 };
 
 PSIarray.forEach((PSI, index) => {
@@ -352,11 +358,11 @@ function reanimateSection2() {
   secondSection.style.animation = null;
 }
 
-function reanimateSocmedWrapper () {
+function reanimateSocmedWrapper() {
   socmedWrapper.style.animation = "none";
   socmedWrapper.offsetHeight;
   socmedWrapper.style.animation = null;
- }
+}
 function reanimatePortfolioInfoContainerTextWrapper() {
   portfolioInfoContainerTextWrapper.style.animation = "none";
   portfolioInfoContainerTextWrapper.offsetHeight;
@@ -386,6 +392,7 @@ function createUL(list) {
   list.forEach((item) => {
     let li = createElem("li");
     li.textContent = item;
+    li.style.width = "20vw";
     elem.appendChild(li);
   });
   return elem;
@@ -615,7 +622,7 @@ portfolioNavButton4.onclick = () => {
 
     getCurrentMember().awards.forEach((award) => {
       PICTWappend(createh3(award.name));
-      PICTWappend(createh4(award.description));
+      PICTWappend(createUL([award.description]));
     });
 
     categoryCount++;
