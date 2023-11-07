@@ -324,14 +324,11 @@ const loadingText = document.getElementById("loadingText");
 const loaderSection = document.getElementById("loaderSection");
 const mainBodyWrapper = document.getElementById("mainBodyWrapper");
 
+loadedCount = 0;
+
 async function preloadedMemberImages() {
   members.forEach(async (member, index) => {
     images.push(new Image());
-    loadingText.textContent =
-      "loading " + member.imageSrc + " " + "[" + (index + 1) + "/7 images...]";
-    console.log(
-      "loading " + member.imageSrc + " " + (index + 1) + "/7 images..."
-    );
     await preloadImage(index, member.imageSrc);
   });
 }
@@ -339,6 +336,11 @@ async function preloadedMemberImages() {
 async function preloadImage(index, src) {
   new Promise((resolve, reject) => {
     images[index].onload = () => {
+      console.log("resolved");
+      loadedCount++;
+      loadingText.textContent =
+        "loading " + "[" + loadedCount + "/7 images...]";
+      checkIfWebsiteIsReady();
       resolve;
     };
     images[index].src = src;
@@ -347,8 +349,12 @@ async function preloadImage(index, src) {
 
 // preload images, and display content after loading
 preloadedMemberImages();
-loaderSection.style.display = "none";
-mainBodyWrapper.style.display = "block";
+function checkIfWebsiteIsReady() {
+  if (loadedCount == 7) {
+    loaderSection.style.display = "none";
+    mainBodyWrapper.style.display = "block";
+  }
+}
 
 const leftSelect = document.getElementById("leftSelect");
 const rightSelect = document.getElementById("rightSelect");
