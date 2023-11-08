@@ -651,3 +651,9 @@ portfolioNavButton4.onclick = () => {
     }
   });
 };
+
+const clickProfileButton = document.getElementById("clickProfileButton");
+
+clickProfileButton.onclick = () => {
+  portraitImage2.click();
+};
