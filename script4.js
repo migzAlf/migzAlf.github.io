@@ -82,7 +82,8 @@ imagesElementArray.forEach((image, index) => {
 });
 
 //init nav buttons
-galleryNavButtons[0].element.click();
+currentNavButton2 = galleryNavButtons[0].element;
+galleryNavButtons[0].element.style.width = "3vw";
 
 // nav control
 const galleryNavControl = document.getElementById("galleryNavControl");
