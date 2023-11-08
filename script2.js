@@ -1,3 +1,6 @@
+//  idk anymore T^T
+let galleryNavControlOnPlay = true;
+
 // could have specified a dedicated json file but oh well!
 
 const membersFull = [

@@ -26,7 +26,6 @@ body {
   background-color: #000;
   margin: 0;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .navBarContainer {
@@ -43,6 +42,15 @@ body {
   align-items: center;
   margin-left: 1.875vw;
   justify-content: left;
+}
+
+.logoContainer > img {
+  transition: 0.3s;
+}
+
+.logoContainer > img:hover {
+  transform: rotateZ(360deg);
+  filter: drop-shadow(0px 0px 10px #ffd86b);
 }
 
 .logoTitle {
